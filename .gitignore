@@ -1,8 +1,29 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# Gradle
+.gradle/
+build/
+out/
 
-# Ignore Gradle build output directory
-build
+# nvim/vim swap and backup files
+*.swp
+*~
+*.bak
+*.swo
 
-# Ignore Project structure .md
-project.md
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Java-specific build artifacts
+*.jar
+*.war
+*.ear
+
+# Sensitive information
+# Never commit your database passwords or credentials!
+# We will create this file later to hold your password.
+db.properties
