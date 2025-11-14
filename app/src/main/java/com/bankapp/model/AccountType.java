@@ -1,4 +1,4 @@
-package com.bankapp.model
+package com.bankapp.model;
 
 public enum AccounType{
   CHECKING,
