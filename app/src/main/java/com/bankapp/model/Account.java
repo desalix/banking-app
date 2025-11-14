@@ -3,6 +3,8 @@ package com.bankapp.model;
 import java.time.LocalDate;
 import java.math.BigDecimal;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,13 +19,13 @@ import javax.persistence.Table;
 
 @Entity // Tells JPA this class is a database entity
 @Table(name = "accounts") // Maps this class to the 'accounts' table in MySQL
-public class Account{
+public class Account {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(unique = true, unique = true, nullable = false)
+  @Column(unique = true, nullable = false)
   private String accountNumber;
 
   @Column(nullable = false)
@@ -40,12 +42,11 @@ public class Account{
   @JoinColumn(name = "customer_id", nullable = false) // Foreign key behavior with 'accounts' table
   private Customer customer;
 
-
-  public Account(){
+  public Account() {
 
   }
 
-  public Account(Customer customer, AccountType accountType, String accountNumber){
+  public Account(Customer customer, AccountType accountType, String accountNumber) {
     this.customer = customer;
     this.accountType = accountType;
     this.accountNumber = accountNumber;
@@ -53,76 +54,78 @@ public class Account{
     this.openedDate = LocalDate.now();
   }
 
-  public Long getId(){
+  public Long getId() {
     return id;
   }
 
-  public void setId(Long id){
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public String getAccountNumber(){
-    return accountType;
+  public String getAccountNumber() {
+    return accountNumber;
   }
 
-  public void setAccountNumber(String accountNumber){
+  public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-  public AccountType getAccountType(){
+  public AccountType getAccountType() {
     return accountType;
   }
 
-  public void setAccountType(AccountType accountType){
+  public void setAccountType(AccountType accountType) {
     this.accountType = accountType;
   }
 
-  public BigDecimal getBalance(){
+  public BigDecimal getBalance() {
     return balance;
   }
 
-  public void setBalance(BigDecimal balance){
+  public void setBalance(BigDecimal balance) {
     this.balance = balance;
   }
 
-  public LocalDate getOpenedDate(){
+  public LocalDate getOpenedDate() {
     return openedDate;
   }
 
-  public void setOpenedDate(LocalDate openedDate){
+  public void setOpenedDate(LocalDate openedDate) {
     this.openedDate = openedDate;
   }
 
-  public Customer getCustomer(){
+  public Customer getCustomer() {
     return customer;
   }
 
-  public void setCustomer(Customer customer){
+  public void setCustomer(Customer customer) {
     this.customer = customer;
   }
 
   @Override
-  public boolean equals(Object o){
-    if(this == o) return true;
-    if(o == null || getClass() != 0.getClass()) return false;
+  public boolean equals(Object o) {
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
 
     Account account = (Account) o;
     return Objects.equals(accountNumber, account.accountNumber);
   }
 
   @Override
-  public int hashCode(){
+  public int hashCode() {
     return Objects.hash(accountNumber);
   }
 
   @Override
-  public String toString(){
+  public String toString() {
     return "Account{" +
-            "id=" + id +
-            ", accountNumber=" + accountNumber +
-            ", accountType=" + accountType +
-            ", balance=" + balance +
-            '}';
+        "id=" + id +
+        ", accountNumber=" + accountNumber +
+        ", accountType=" + accountType +
+        ", balance=" + balance +
+        '}';
   }
 
 }

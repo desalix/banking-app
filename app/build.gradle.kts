@@ -10,8 +10,7 @@ plugins {
 
     application
 
-    // JavaFX plugin
-    id("org.openjfx.javafxplugin") version "0.0.13"
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 repositories {
@@ -46,7 +45,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.bankapp.MainApp") 
+    mainClass.set("com.bankapp.MainApp")
 }
 
 tasks.test {

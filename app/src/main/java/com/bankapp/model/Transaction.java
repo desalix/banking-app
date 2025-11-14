@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "transactions")
-public class Transaction{
+public class Transaction {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,13 +30,13 @@ public class Transaction{
 
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)
-  private TransationType type;
+  private TransactionType type;
 
   @Column(nullable = false)
   private BigDecimal amount;
 
   @Column(nullable = false)
-  private LocalDate timestamp;
+  private LocalDateTime timestamp;
 
   @Column(name = "correlation_id")
   private UUID correlationId; // Links two transactions to a transfer
@@ -45,99 +45,98 @@ public class Transaction{
   @JoinColumn(name = "account_id", nullable = false)
   private Account account;
 
-
-  public Transaction(){
+  public Transaction() {
 
   }
 
   public Transaction(Account account, TransactionType type, BigDecimal amount, String description) {
-        this.account = account;
-        this.type = type;
-        this.amount = amount;
-        this.description = description;
-        this.timestamp = LocalDateTime.now(); // Set timestamp on creation
-    }
-
+    this.account = account;
+    this.type = type;
+    this.amount = amount;
+    this.description = description;
+    this.timestamp = LocalDateTime.now(); // Set timestamp on creation
+  }
 
   public Long getId() {
-      return id;
+    return id;
   }
 
   public void setId(Long id) {
-      this.id = id;
+    this.id = id;
   }
 
   public BigDecimal getAmount() {
-      return amount;
+    return amount;
   }
 
   public void setAmount(BigDecimal amount) {
-      this.amount = amount;
+    this.amount = amount;
   }
 
   public TransactionType getType() {
-      return type;
+    return type;
   }
 
   public void setType(TransactionType type) {
-      this.type = type;
+    this.type = type;
   }
 
   public LocalDateTime getTimestamp() {
-      return timestamp;
+    return timestamp;
   }
 
   public void setTimestamp(LocalDateTime timestamp) {
-      this.timestamp = timestamp;
+    this.timestamp = timestamp;
   }
 
   public String getDescription() {
-      return description;
+    return description;
   }
 
   public void setDescription(String description) {
-      this.description = description;
+    this.description = description;
   }
 
   public UUID getCorrelationId() {
-      return correlationId;
+    return correlationId;
   }
 
   public void setCorrelationId(UUID correlationId) {
-      this.correlationId = correlationId;
+    this.correlationId = correlationId;
   }
 
   public Account getAccount() {
-      return account;
+    return account;
   }
 
   public void setAccount(Account account) {
-      this.account = account;
+    this.account = account;
   }
-
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
+
     Transaction that = (Transaction) o;
     return id != null && Objects.equals(id, that.id);
-    }
+  }
 
   @Override
   public int hashCode() {
-      return getClass().hashCode();
+    return getClass().hashCode();
   }
 
   @Override
   public String toString() {
     return "Transaction{" +
-            "id=" + id +
-              ", amount=" + amount +
-              ", type=" + type +
-              ", timestamp=" + timestamp +
-              ", description='" + description +
-            '}';
+        "id=" + id +
+        ", amount=" + amount +
+        ", type=" + type +
+        ", timestamp=" + timestamp +
+        ", description='" + description +
+        '}';
   }
 }
