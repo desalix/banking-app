@@ -51,4 +51,13 @@ public interface CustomerRepository {
    * @param customer The customer object to delete.
    */
   void delete(Customer customer);
+
+  /**
+   * Finds a customer by their unique email.
+   *
+   * @param email The email to search for.
+   * @return An Optional containing the customer if found, or an empty Optional if
+   *         not.
+   */
+  Optional<Customer> findByEmail(String email);
 }
