@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import com.bankapp.util.ViewFactory;
 
 public class LoginController {
 
@@ -38,12 +40,13 @@ public class LoginController {
 
   @FXML
   public void initialize() {
-    // This method runs automatically when the view loads.
-
     loginButton.setOnAction(event -> handleLogin());
 
-    // We haven't built the Register screen yet, so just show a popup
-    registerButton.setOnAction(event -> AlertUtils.showInformation("Coming Soon", "Registration screen is next!"));
+    registerButton.setOnAction(event -> {
+      Stage stage = (Stage) registerButton.getScene().getWindow();
+      ViewFactory vf = new ViewFactory(stage);
+      vf.show(ViewFactory.ViewType.REGISTER);
+    });
   }
 
   private void handleLogin() {
