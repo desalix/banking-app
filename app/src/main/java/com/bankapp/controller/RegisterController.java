@@ -1,11 +1,10 @@
 package com.bankapp.controller;
 
-import com.bankapp.repository_impl.mock.MockCustomerRepository;
 import com.bankapp.service.AuthService;
 import com.bankapp.service.exception.UserAlreadyExistsException;
-import com.bankapp.service.impl.AuthServiceImpl;
 import com.bankapp.util.AlertUtils;
 import com.bankapp.util.ViewFactory;
+import com.bankapp.util.DependencyFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,7 +34,7 @@ public class RegisterController {
   private final AuthService authService;
 
   public RegisterController() {
-    this.authService = new AuthServiceImpl(new MockCustomerRepository());
+    this.authService = DependencyFactory.getAuthService();
   }
 
   // We need a way to inject the current stage (window) to close it/switch scenes.

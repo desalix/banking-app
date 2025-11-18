@@ -1,12 +1,10 @@
 package com.bankapp.controller;
 
 import com.bankapp.model.Customer;
-import com.bankapp.repository_impl.mock.MockCustomerRepository;
 import com.bankapp.service.AuthService;
 import com.bankapp.service.exception.AuthException;
-import com.bankapp.service.impl.AuthServiceImpl;
-import com.bankapp.util.AlertUtils;
 import com.bankapp.util.UserSession;
+import com.bankapp.util.DependencyFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,7 +33,7 @@ public class LoginController {
     // Manual Dependency Injection:
     // We create the service using the Mock Repository.
     // In a bigger app, a framework (like Spring) would do this for us.
-    this.authService = new AuthServiceImpl(new MockCustomerRepository());
+    this.authService = DependencyFactory.getAuthService();
   }
 
   @FXML
@@ -60,11 +58,15 @@ public class LoginController {
       // 2. Store the user in the session
       UserSession.getInstance().login(customer);
 
-      // 3. Success!
       System.out.println("Login Successful for: " + customer.getUsername());
 
-      // TODO: Navigate to Dashboard (We will do this later)
-      AlertUtils.showInformation("Success", "Logged in as " + customer.getUsername());
+      // 3. --- NAVIGATION LOGIC ---
+      // Get the current window (Stage) from the login button
+      Stage stage = (Stage) loginButton.getScene().getWindow();
+
+      // Create the ViewFactory and show the Dashboard
+      ViewFactory vf = new ViewFactory(stage);
+      vf.show(ViewFactory.ViewType.DASHBOARD);
 
     } catch (AuthException e) {
       // 4. Failure - Show error in the label

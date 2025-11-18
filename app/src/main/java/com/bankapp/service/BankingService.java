@@ -1,6 +1,8 @@
 package com.bankapp.service;
 
 import com.bankapp.model.Account;
+import com.bankapp.model.AccountType;
+import com.bankapp.model.Customer;
 import com.bankapp.model.Transaction;
 import com.bankapp.service.exception.AccountNotFoundException;
 import com.bankapp.service.exception.InsufficientFundsException;
@@ -8,6 +10,7 @@ import com.bankapp.service.exception.InvalidAmountException;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Interface (contract) for the Banking Service.
@@ -77,4 +80,10 @@ public interface BankingService {
   Account getAccount(String accountNumber)
       throws AccountNotFoundException;
 
+  Account createAccount(Customer customer, AccountType type, String accountNumber);
+
+  /**
+   * Retrieves all accounts belonging to a specific customer ID.
+   */
+  Set<Account> getAccountsForCustomer(Long customerId);
 }

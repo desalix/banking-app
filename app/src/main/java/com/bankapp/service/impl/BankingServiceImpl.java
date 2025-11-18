@@ -1,6 +1,8 @@
 package com.bankapp.service.impl;
 
 import com.bankapp.model.Account;
+import com.bankapp.model.AccountType;
+import com.bankapp.model.Customer;
 import com.bankapp.model.Transaction;
 import com.bankapp.model.TransactionType;
 import com.bankapp.repository.AccountRepository;
@@ -13,6 +15,7 @@ import com.bankapp.service.exception.InvalidAmountException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
+import java.util.Set;
 
 public class BankingServiceImpl implements BankingService {
 
@@ -151,5 +154,19 @@ public class BankingServiceImpl implements BankingService {
     if (account.getBalance().compareTo(amount) < 0) {
       throw new InsufficientFundsException("Insufficient funds for this transaction.");
     }
+  }
+
+  @Override
+  public Account createAccount(Customer customer, AccountType type, String accountNumber) {
+    Account newAccount = new Account(customer, type, accountNumber);
+    return accountRepository.save(newAccount);
+  }
+
+  @Override
+  public Set<Account> getAccountsForCustomer(Long customerId) {
+    // We create a dummy customer object just to pass the ID to the repository
+    Customer customer = new Customer();
+    customer.setId(customerId);
+    return accountRepository.findAllByCustomer(customer);
   }
 }
