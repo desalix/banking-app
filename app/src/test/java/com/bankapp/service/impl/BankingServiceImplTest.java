@@ -9,9 +9,7 @@ import com.bankapp.repository.TransactionRepository;
 import com.bankapp.repository_impl.mock.MockAccountRepository;
 import com.bankapp.repository_impl.mock.MockTransactionRepository;
 import com.bankapp.service.BankingService;
-import com.bankapp.service.exception.AccountNotFoundException;
 import com.bankapp.service.exception.InsufficientFundsException;
-import com.bankapp.service.exception.InvalidAmountException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

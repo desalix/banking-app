@@ -38,6 +38,7 @@ dependencies {
     // --- Security ---
     // For hashing passwords (BCrypt)
     implementation("org.springframework.security:spring-security-crypto:6.1.5")
+    implementation("commons-logging:commons-logging:1.2")
 
     // MySQL Connector
     // Hibernate - MySQL driver
@@ -46,6 +47,7 @@ dependencies {
     // Tests
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 application {
