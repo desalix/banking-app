@@ -35,6 +35,8 @@ dependencies {
     // Bring in all the JPA interfaces
     implementation("org.hibernate:hibernate-core:5.6.15.Final")
 
+    implementation("io.github.mkpaz:atlantafx-base:2.0.1")
+
     // --- Security ---
     // For hashing passwords (BCrypt)
     implementation("org.springframework.security:spring-security-crypto:6.1.5")
