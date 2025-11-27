@@ -1,4 +1,4 @@
-wpackage com.bankapp.util;
+package com.bankapp.util;
 
 import com.bankapp.controller.MainLayoutController;
 import javafx.fxml.FXMLLoader;
