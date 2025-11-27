@@ -70,6 +70,88 @@
 /* Content Area */
 .content-area {
     -fx-padding: 20;
-    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 5, 5);
 }
 
+/* Home Page Styles */
+.welcome-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.date-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #888888;
+}
+
+.summary-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-min-width: 200px;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+.card-amount {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 5 0 10 0;
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.card-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.action-button {
+    -fx-background-color: #f0f4ff;
+    -fx-text-fill: #2962ff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 15;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.transaction-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.transaction-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10 0;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-border-color: #eeeeee;
+    -fx-border-width: 0 0 1 0;
+}
+
+.transaction-list .list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
