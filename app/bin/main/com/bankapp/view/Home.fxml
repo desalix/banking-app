@@ -61,7 +61,7 @@
                 <!-- Left: Chart -->
                 <VBox spacing="15.0" styleClass="chart-container" HBox.hgrow="ALWAYS">
                     <Label styleClass="section-title" text="Financial Overview" />
-                    <LineChart fx:id="financialChart" animated="false" createSymbols="false" legendVisible="false" prefHeight="300.0" maxHeight="300.0">
+                    <LineChart fx:id="financialChart" animated="false" createSymbols="false" legendVisible="false" maxHeight="300.0">
                         <xAxis>
                             <CategoryAxis side="BOTTOM" />
                         </xAxis>
@@ -72,7 +72,7 @@
                 </VBox>
 
                 <!-- Right: Quick Actions & Recent Transactions -->
-                <VBox maxWidth="350.0" minWidth="300.0" spacing="20.0" HBox.hgrow="NEVER">
+                <VBox maxWidth="350.0" spacing="20.0" HBox.hgrow="NEVER">
                     
                     <!-- Quick Actions -->
                     <VBox spacing="10.0" styleClass="card-container">
@@ -85,9 +85,9 @@
                     </VBox>
 
                     <!-- Recent Transactions -->
-                    <VBox spacing="10.0" styleClass="card-container">
+                    <VBox spacing="10.0" styleClass="card-container" HBox.hgrow="ALWAYS">
                         <Label styleClass="section-title" text="Recent Transactions" />
-                        <ListView fx:id="recentTransactionsList" styleClass="transaction-list" prefHeight="200.0" maxHeight="200.0" />
+                        <ListView fx:id="recentTransactionsList" styleClass="transaction-list" maxHeight="200.0" />
                     </VBox>
                 </VBox>
             </HBox>

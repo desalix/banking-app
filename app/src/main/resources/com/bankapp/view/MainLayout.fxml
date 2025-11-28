@@ -14,8 +14,9 @@
 <BorderPane fx:id="mainLayout" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bankapp.controller.MainLayoutController">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="110.0" styleClass="header">
+        <HBox alignment="CENTER_LEFT" spacing="25.0" styleClass="header">
             <Label styleClass="app-title" text="Finsaver" />
+            <Region HBox.hgrow="ALWAYS" />
             <Label fx:id="pageTitle" styleClass="page-title" text="Home" />
             <Region HBox.hgrow="ALWAYS" />
             <Button fx:id="profileButton" styleClass="profile-button" text="Profile" />

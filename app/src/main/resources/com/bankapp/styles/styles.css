@@ -1,13 +1,15 @@
 /* Global Styles */
 .root {
     -fx-font-family: 'Inter', 'Segoe UI', sans-serif;
-    -fx-background-color: #f4f7fa;
+    -fx-background-color: white;
 }
 
 /* Header */
 .header {
     -fx-background-color: white;
     -fx-padding: 15 20;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #f4f7fa;
 }
 
 .app-title {
@@ -29,8 +31,13 @@
     -fx-font-size: 14px;
     -fx-cursor: hand;
 }
+
 .profile-button:hover {
-    -fx-text-fill: #000000;
+    -fx-text-fill: black;
+}
+
+.profile-button.active {
+    -fx-text-fill: black;
 }
 
 /* Sidebar */
@@ -38,6 +45,8 @@
     -fx-background-color: white;
     -fx-padding: 20 10;
     -fx-pref-width: 220px;
+    -fx-border-color: #f4f7fa;
+    -fx-border-width: 0 2 0 0;
 }
 
 .nav-button {
@@ -51,19 +60,10 @@
 }
 
 .nav-button:hover {
-    /* Handled by Java Transition */
 }
 
 .nav-button.active {
     -fx-text-fill: -color-accent-fg;
-    -fx-font-weight: bold;
-    /* No background change for active, or keep it subtle if desired. 
-       User said "change color and to bold", didn't mention bg. 
-       We'll keep it transparent or let Java reset it. */
-}
-
-.profile-button.active {
-    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .summary-card {
-    -fx-background-color: white;
+    -fx-background-color: #f4f7fa;
     -fx-background-radius: 12;
     -fx-padding: 20;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
@@ -105,7 +105,7 @@
 }
 
 .chart-container {
-    -fx-background-color: white;
+    -fx-background-color: #f4f7fa;
     -fx-background-radius: 12;
     -fx-padding: 20;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
@@ -117,15 +117,17 @@
     -fx-text-fill: #333333;
 }
 
+/* Affects Quick action-button and transaction-list */
 .card-container {
     -fx-background-color: white;
     -fx-background-radius: 12;
+    -fx-border-width: 1; 
     -fx-padding: 20;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
 
 .action-button {
-    -fx-background-color: #f0f4ff;
+    -fx-background-color: #f4f7fa;
     -fx-text-fill: #2962ff;
     -fx-font-weight: bold;
     -fx-background-radius: 8;
@@ -138,17 +140,16 @@
 }
 
 .transaction-list {
-    -fx-background-color: transparent;
+    -fx-background-color: #f4f7fa;
     -fx-border-color: transparent;
 }
 
 .transaction-list .list-cell {
-    -fx-background-color: transparent;
-    -fx-padding: 10 0;
+    -fx-background-color: white;
+    -fx-padding: 0 10 0 10;
     -fx-text-fill: #333333;
     -fx-font-size: 14px;
     -fx-border-color: #eeeeee;
-    -fx-border-width: 0 0 1 0;
 }
 
 .transaction-list .list-cell:empty {
